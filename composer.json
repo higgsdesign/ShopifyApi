@@ -13,7 +13,9 @@
 			"role": "Developer"
 		}
 	],
-	"autoload" : {
-		"psr-0" : "src/"
-	}
+	"autoload": {
+        "psr-0": {
+            "ShopifyApi": "src/"
+        }
+    },
 }
