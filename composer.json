@@ -1,9 +1,9 @@
 {
-	"name": "higgsdesign/shopify_api",
+	"name": "higgsdesign/ShopifyApi",
 	"type": "library",
 	"description": "Simple Shopify API client in PHP",
 	"keywords": ["shopify","api"],
-	"homepage": "https://github.com/higgsdesign/shopify_api",
+	"homepage": "https://github.com/higgsdesign/ShopifyApi",
 	"license": "MIT",
 	"authors": [
 		{
