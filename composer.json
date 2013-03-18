@@ -1,16 +1,25 @@
 {
-	"name": "higgsdesign/ShopifyApi",
+	"name": "HiggsDesign/ShopifyApi",
 	"type": "library",
 	"description": "Simple Shopify API client in PHP",
 	"keywords": ["shopify","api"],
-	"homepage": "https://github.com/higgsdesign/ShopifyApi",
+	"homepage": "https://github.com/dannewns/ShopifyApi",
 	"license": "MIT",
 	"authors": [
 		{
-			"name": "Sandeep Shetty",
-			"email": "sandeep.shetty@gmail.com",
-			"homepage": "http://sandeep.shetty.in",
+			"name": "Higgs Design",
+			"email": "team@higgsdesign.com",
+			"homepage": "http://www.higgsdesign.com",
 			"role": "Developer"
 		}
-	]
+	],
+	"require": {
+		"php": ">=5.3.0",
+		"sandeepshetty/wcurl": "dev-master"
+	},
+	"autoload": {
+        "psr-0": {
+            "ShopifyApi": "src/"
+        }
+    }
 }
