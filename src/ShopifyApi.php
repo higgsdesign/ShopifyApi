@@ -1,6 +1,6 @@
 <?php
 
-namespace dannewns\Shopify_Api;
+namespace dannewns\ShopifyApi;
 
 class ShopifyApi {
 
