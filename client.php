@@ -1,7 +1,8 @@
 <?php
 
-	namespace sandeepshetty\shopify_api;
-	require 'vendor/autoload.php';
+namespace HiggsDesign\Shopify_Api;
+
+class ShopifyApi {
 
 
 	function install_url($shop, $api_key)
@@ -97,28 +98,12 @@
 	}
 
 
-		function _shop_api_call_limit_param($index, $response_headers)
-		{
-			$params = explode('/', $response_headers['http_x_shopify_shop_api_call_limit']);
-			return (int) $params[$index];
-		}
-
-
-	class CurlException extends \Exception { }
-	class Exception extends \Exception
+	function _shop_api_call_limit_param($index, $response_headers)
 	{
-		protected $info;
-
-		function __construct($info)
-		{
-			$this->info = $info;
-			parent::__construct($info['response_headers']['http_status_message'], $info['response_headers']['http_status_code']);
-		}
-
-		function getInfo() { $this->info; }
+		$params = explode('/', $response_headers['http_x_shopify_shop_api_call_limit']);
+		return (int) $params[$index];
 	}
-
-
+		
 	function legacy_token_to_oauth_token($shops_token, $shared_secret, $private_app=false)
 	{
 		return $private_app ? $secret : md5($shared_secret.$shops_token);
@@ -130,5 +115,27 @@
 		return "https://$api_key:$password@$shop/";
 
 	}
+	
+}
+
+
+class CurlException extends \Exception { }
+
+class Exception extends \Exception
+{
+	protected $info;
+
+	function __construct($info)
+	{
+		$this->info = $info;
+		parent::__construct($info['response_headers']['http_status_message'], $info['response_headers']['http_status_code']);
+	}
+
+	function getInfo() { $this->info; }
+
+}
+
+
+
 
 ?>
