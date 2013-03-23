@@ -1,8 +1,8 @@
 <?php
 
-namespace HiggsDesign\ShopifyApi;
+namespace ShopifyApi;
 
-class ShopifyApi {
+class Api {
 
 
     function installURL($shop, $api_key)
