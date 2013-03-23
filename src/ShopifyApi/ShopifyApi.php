@@ -126,7 +126,7 @@ class ShopifyApi {
 
 class CurlException extends \Exception { }
 
-class Exception extends \Exception
+class ApiException extends \Exception
 {
     protected $info;
 
