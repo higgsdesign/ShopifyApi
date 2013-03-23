@@ -1,5 +1,5 @@
 {
-	"name": "HiggsDesign/ShopifyApi",
+	"name": "higgsdesign/ShopifyApi",
 	"type": "library",
 	"description": "Simple Shopify API client in PHP",
 	"keywords": ["shopify","api"],
