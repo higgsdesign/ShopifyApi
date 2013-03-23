@@ -37,7 +37,7 @@ class Api {
 
     function oauthAccessToken($shop, $api_key, $shared_secret, $code)
     {
-        return _api('POST', "https://$shop/admin/oauth/access_token", NULL, array('client_id'=>$api_key, 'client_secret'=>$shared_secret, 'code'=>$code));
+        return self::_api('POST', "https://$shop/admin/oauth/access_token", NULL, array('client_id'=>$api_key, 'client_secret'=>$shared_secret, 'code'=>$code));
     }
 
 
