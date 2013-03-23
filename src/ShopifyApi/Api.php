@@ -5,13 +5,13 @@ namespace ShopifyApi;
 class Api {
 
 
-    function installURL($shop, $api_key)
+    public function installURL($shop, $api_key)
     {
         return "http://$shop/admin/api/auth?api_key=$api_key";
     }
 
 
-    function isValidRequest($query_params, $shared_secret)
+    public function isValidRequest($query_params, $shared_secret)
     {
         $seconds_in_a_day = 24 * 60 * 60;
         $older_than_a_day = $query_params['timestamp'] < (time() - $seconds_in_a_day);
@@ -27,7 +27,7 @@ class Api {
     }
 
 
-    function permissionURL($shop, $api_key, $scope=array(), $redirect_uri='')
+    public function permissionURL($shop, $api_key, $scope=array(), $redirect_uri='')
     {
         $scope = empty($scope) ? '' : '&scope='.implode(',', $scope);
         $redirect_uri = empty($redirect_uri) ? '' : '&redirect_uri='.urlencode($redirect_uri);
@@ -35,7 +35,7 @@ class Api {
     }
 
 
-    function oauthAccessToken($shop, $api_key, $shared_secret, $code)
+    public function oauthAccessToken($shop, $api_key, $shared_secret, $code)
     {
         return self::_api('POST', "https://$shop/admin/oauth/access_token", NULL, array('client_id'=>$api_key, 'client_secret'=>$shared_secret, 'code'=>$code));
     }
@@ -56,11 +56,11 @@ class Api {
             array_push($request_headers, "X-Shopify-Access-Token: $shops_token");
             if (in_array($method, array('POST','PUT'))) array_push($request_headers, "Content-Type: application/json; charset=utf-8");
 
-            return _api($method, $url, $query, $payload, $request_headers, $response_headers);
+            return self::_api($method, $url, $query, $payload, $request_headers, $response_headers);
         };
     }
 
-    function _api($method, $url, $query='', $payload='', $request_headers=array(), &$response_headers=array())
+    private function _api($method, $url, $query='', $payload='', $request_headers=array(), &$response_headers=array())
     {
         try
         {
@@ -82,19 +82,19 @@ class Api {
 
     function callsMade($response_headers)
     {
-        return shopApiCallLimitParam(0, $response_headers);
+        return self::shopApiCallLimitParam(0, $response_headers);
     }
 
 
     function callLimit($response_headers)
     {
-        return shopApiCallLimitParam(1, $response_headers);
+        return self::shopApiCallLimitParam(1, $response_headers);
     }
 
 
     function callsLeft($response_headers)
     {
-        return callLimit($response_headers) - callsMade($response_headers);
+        return self::callLimit($response_headers) - self::callsMade($response_headers);
     }
 
 
