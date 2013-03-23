@@ -64,7 +64,8 @@ class Api {
     {
         try
         {
-            $response = wcurl($method, $url, $query, $payload, $request_headers, $response_headers);
+            $wcurl = new \Wcurl\Wcurl;
+            $response = $wcurl->wcurl($method, $url, $query, $payload, $request_headers, $response_headers);
         }
         catch(WcurlException $e)
         {
