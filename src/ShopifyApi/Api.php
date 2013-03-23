@@ -80,13 +80,13 @@ class Api {
     }
 
 
-    function callsMade($response_headers)
+    private function callsMade($response_headers)
     {
         return self::shopApiCallLimitParam(0, $response_headers);
     }
 
 
-    function callLimit($response_headers)
+    private function callLimit($response_headers)
     {
         return self::shopApiCallLimitParam(1, $response_headers);
     }
@@ -108,18 +108,6 @@ class Api {
     {
         $params = explode('/', $response_headers['http_x_shopify_shop_api_call_limit']);
         return (int) $params[$index];
-    }
-
-    function legacyTokenToOauthToken($shops_token, $shared_secret, $private_app=false)
-    {
-        return $private_app ? $secret : md5($shared_secret.$shops_token);
-    }
-
-
-    function legacyBaseUrl($shop, $api_key, $password)
-    {
-        return "https://$api_key:$password@$shop/";
-
     }
 
 }
