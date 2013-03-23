@@ -3,14 +3,14 @@
 	"type": "library",
 	"description": "Simple Shopify API client in PHP",
 	"keywords": ["shopify","api"],
-	"homepage": "https://github.com/dannewns/ShopifyApi",
+	"homepage": "https://github.com/higgsdesign/ShopifyApi",
 	"license": "MIT",
 	"authors": [
 		{
-			"name": "Higgs Design",
+			"name": "The Higgs Design Co.",
 			"email": "team@higgsdesign.com",
 			"homepage": "http://www.higgsdesign.com",
-			"role": "Developer"
+			"role": "Developers"
 		}
 	],
 	"require": {
